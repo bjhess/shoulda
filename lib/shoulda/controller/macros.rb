@@ -227,6 +227,7 @@ module ThoughtBot # :nodoc:
         #   should_render_with_layout 'special'
         def should_render_with_layout(expected_layout = 'application')
           if expected_layout
+            expected_layout = expected_layout.to_s
             should "render with #{expected_layout} layout" do
               response_layout = @response.layout.blank? ? "" : @response.layout.split('/').last
               assert_equal expected_layout,
